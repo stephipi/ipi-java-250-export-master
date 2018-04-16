@@ -2,9 +2,6 @@ package com.example.demo.entity;
 
 import javax.persistence.*;
 
-/**
- * Created by Kayne on 09/04/2018.
- */
 @Entity
 public class Article {
 

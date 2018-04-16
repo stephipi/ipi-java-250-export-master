@@ -4,9 +4,6 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-/**
- * Created by Kayne on 09/04/2018.
- */
 @Entity
 public class Facture {
 

@@ -34,16 +34,16 @@ public class InitData {
         client3.setPrenom("Jean");
         em.persist(client3);
 
-        Facture facture1 = new Facture();
-        facture1.setClient(client1);
-        em.persist(facture1);
-  
+        Facture facture = new Facture();
+        facture.setClient(client1);
+        em.persist(facture);
+ 
         Facture facture2 = new Facture();
         facture2.setClient(client2);
         em.persist(facture2);
-        
+      
         Facture facture3 = new Facture();
-        facture3.setClient(client3);
+        facture3.setClient(client2);
         em.persist(facture3);
 
         Facture facture4 = new Facture();
@@ -66,19 +66,19 @@ public class InitData {
         em.persist(article3);
         
         LigneFacture ligneFacture1 = new LigneFacture();
-        ligneFacture1.setFacture(facture1);
+        ligneFacture1.setFacture(facture);
         ligneFacture1.setArticle(article1);
         ligneFacture1.setQuantite(1);
         em.persist(ligneFacture1);
 
         LigneFacture ligneFacture2 = new LigneFacture();
-        ligneFacture2.setFacture(facture1);
+        ligneFacture2.setFacture(facture2);
         ligneFacture2.setArticle(article2);
         ligneFacture2.setQuantite(3);
         em.persist(ligneFacture2);
         
         LigneFacture ligneFacture3 = new LigneFacture();
-        ligneFacture3.setFacture(facture2);
+        ligneFacture3.setFacture(facture);
         ligneFacture3.setArticle(article1);
         ligneFacture3.setQuantite(1);
         em.persist(ligneFacture3);

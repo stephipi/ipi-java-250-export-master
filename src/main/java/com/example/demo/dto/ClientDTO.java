@@ -20,5 +20,5 @@ public class ClientDTO {
 
     public void setNom(String nom) {
         this.nom = nom;
-    }
+    }  
 }
