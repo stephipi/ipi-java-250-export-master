@@ -7,6 +7,7 @@ import com.example.demo.service.FactureService;
 import com.example.demo.service.export.ExportCSVService;
 import com.example.demo.service.export.ExportPDFITextService;
 import com.example.demo.service.export.ExportXLSXService;
+import com.example.demo.service.export.ExportXLXSPoiService;
 import com.itextpdf.text.DocumentException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -39,6 +40,9 @@ public class ExportController {
     private ExportXLSXService exportXLSXService;
 
     @Autowired
+    private ExportXLXSPoiService exportXLXSPoiService;
+    
+    @Autowired
     private ExportPDFITextService exportPDFITextService;
 
     @GetMapping("/clients/csv")
@@ -62,6 +66,8 @@ public class ExportController {
         response.setContentType("application/vnd.ms-excel");
         response.setHeader("Content-Disposition", "attachment; filename=\"factures client " + clientId + ".xlsx\"");
         // TODO
+        ClientDTO client = clientService.findById(clientId);
+        exportXLXSPoiService.export(response.getOutputStream(), client);
     }
 
 

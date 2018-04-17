@@ -3,9 +3,6 @@ package com.example.demo.dto;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Kayne on 09/04/2018.
- */
 public class FactureDTO {
 
     private Long id;

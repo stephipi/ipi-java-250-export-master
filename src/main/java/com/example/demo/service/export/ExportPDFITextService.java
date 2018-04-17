@@ -1,9 +1,7 @@
 package com.example.demo.service.export;
 
-import com.example.demo.dto.ClientDTO;
 import com.example.demo.dto.FactureDTO;
 import com.example.demo.dto.LigneFactureDTO;
-import com.example.demo.entity.Facture;
 import com.itextpdf.text.Anchor;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
@@ -97,19 +95,7 @@ public class ExportPDFITextService {
         table.addCell(cell411);
         
         document.add(table);
-        /*
-        Paragraph legende1 = new Paragraph("DESCRIPTION");
-		document.add(legende1);
-
-        Paragraph legende2 = new Paragraph("PRIX UNITAIRE");
-		document.add(legende2);
-
-        Paragraph legende3 = new Paragraph("QUANTITE");
-		document.add(legende3);
-
-        Paragraph legende4 = new Paragraph("TOTAL");
-		document.add(legende4);
-        */
+        
 		document.add(new Paragraph("Pour toute réclamation, demande d'innformation, veuillez contacter le support du fournisseur", font2));
 
 		Anchor anchor = new Anchor("http://monsite.com", font2);

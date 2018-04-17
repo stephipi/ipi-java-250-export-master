@@ -1,9 +1,5 @@
 package com.example.demo.dto;
 
-
-/**
- * Created by Kayne on 09/04/2018.
- */
 public class LigneFactureDTO {
 
     private String designation;
