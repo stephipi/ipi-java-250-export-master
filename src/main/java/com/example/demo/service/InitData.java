@@ -33,7 +33,7 @@ public class InitData {
 
         Article article1 = new Article();
         article1.setLibelle("Lunettes de natation Fastskin Elite Mirror");
-        article1.setPrix(54.00);
+        article1.setPrix(54.50);
         em.persist(article1);
         
         Article article2 = new Article();

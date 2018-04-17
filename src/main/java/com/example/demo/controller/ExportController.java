@@ -66,8 +66,8 @@ public class ExportController {
         response.setContentType("application/vnd.ms-excel");
         response.setHeader("Content-Disposition", "attachment; filename=\"factures client " + clientId + ".xlsx\"");
         // TODO
-        ClientDTO client = clientService.findById(clientId);
-        exportXLXSPoiService.export(response.getOutputStream(), client);
+        List<FactureDTO> factures = factureService.findAllFactures();
+        exportXLXSPoiService.export(response.getOutputStream(), factures, clientId);
     }
 
 
