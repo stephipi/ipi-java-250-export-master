@@ -18,37 +18,18 @@ public class InitData {
     private EntityManager em;
 
     public void insertTestData() {
-
-        Client client1  = new Client();
-        client1.setNom("PETRILLO");
-        client1.setPrenom("Alexandre");
+        Client client1 = newClient("PETRILLO", "Alexandre");
         em.persist(client1);
 
         Client client2  = new Client();
-        client2.setNom("DUPOND");
-        client2.setPrenom("Patrick");
+        client2.setNom("PROVIST");
+        client2.setPrenom("Alain");
         em.persist(client2);
 
         Client client3  = new Client();
         client3.setNom("BON");
         client3.setPrenom("Jean");
         em.persist(client3);
-
-        Facture facture = new Facture();
-        facture.setClient(client1);
-        em.persist(facture);
- 
-        Facture facture2 = new Facture();
-        facture2.setClient(client2);
-        em.persist(facture2);
-      
-        Facture facture3 = new Facture();
-        facture3.setClient(client2);
-        em.persist(facture3);
-
-        Facture facture4 = new Facture();
-        facture3.setClient(client1);
-        em.persist(facture4);
 
         Article article1 = new Article();
         article1.setLibelle("Lunettes de natation Fastskin Elite Mirror");
@@ -65,29 +46,42 @@ public class InitData {
         article3.setPrix(35.00);
         em.persist(article3);
         
+        Facture facture = newFacture(client1);
+        em.persist(facture);
+        em.persist(newLigneFacture(article1, facture, 1));
+        em.persist(newLigneFacture(article3, facture, 2));
+        
+        Facture facture2 = newFacture(client1);
+        em.persist(facture2);
+        em.persist(newLigneFacture(article1, facture2, 1));
+        em.persist(newLigneFacture(article2, facture2, 5));
+    }
+
+    private Client newClient(String nom, String prenom) {
+        Client client = new Client();
+        client.setNom(nom);
+        client.setPrenom(prenom);
+        return client;
+    }
+
+    private Article newArticle(String libelle, double prix) {
+        Article article = new Article();
+        article.setLibelle(libelle);
+        article.setPrix(prix);
+        return article;
+    }
+
+    private Facture newFacture(Client client) {
+        Facture facture = new Facture();
+        facture.setClient(client);
+        return facture;
+    }
+
+    private LigneFacture newLigneFacture(Article article, Facture facture, int quantite) {
         LigneFacture ligneFacture1 = new LigneFacture();
         ligneFacture1.setFacture(facture);
-        ligneFacture1.setArticle(article1);
-        ligneFacture1.setQuantite(1);
-        em.persist(ligneFacture1);
-
-        LigneFacture ligneFacture2 = new LigneFacture();
-        ligneFacture2.setFacture(facture2);
-        ligneFacture2.setArticle(article2);
-        ligneFacture2.setQuantite(3);
-        em.persist(ligneFacture2);
-        
-        LigneFacture ligneFacture3 = new LigneFacture();
-        ligneFacture3.setFacture(facture);
-        ligneFacture3.setArticle(article1);
-        ligneFacture3.setQuantite(1);
-        em.persist(ligneFacture3);
-
-        LigneFacture ligneFacture4 = new LigneFacture();
-        ligneFacture4.setFacture(facture2);
-        ligneFacture4.setArticle(article3);
-        ligneFacture4.setQuantite(1);
-        em.persist(ligneFacture4);
-
+        ligneFacture1.setArticle(article);
+        ligneFacture1.setQuantite(quantite);
+        return ligneFacture1;
     }
 }

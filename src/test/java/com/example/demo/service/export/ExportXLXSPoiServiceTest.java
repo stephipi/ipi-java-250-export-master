@@ -1,4 +1,3 @@
-/*
 package com.example.demo.service.export;
 
 import com.example.demo.dto.ClientDTO;
@@ -24,10 +23,9 @@ public class ExportXLXSPoiServiceTest {
         tempFile.createNewFile();
         FileOutputStream fos = new FileOutputStream(tempFile);
 
-        ExportXLXSPoiService exportXLXSPoiService = new ExportXLXSPoiService();
-        exportXLXSPoiService.export(fos, clientDTOS);
+        ExportXLSXService exportXLSXService = new ExportXLSXService();
+        exportXLSXService.export(fos, clientDTOS);
 
         fos.close();
     }
 }
-*/
